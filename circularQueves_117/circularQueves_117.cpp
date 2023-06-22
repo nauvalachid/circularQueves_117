@@ -3,7 +3,7 @@ using namespace std;
 
 class Queues {
 	int FRONT, REAR, max = 5;
-	int queue_array[5]; 
+	int queue_array[5];
 
 public:
 	Queues() {
@@ -59,3 +59,34 @@ public:
 				FRONT = FRONT + 1;
 		}
 	}
+
+	void display() {
+		int FRONT_position = FRONT;
+		int REAR_position = REAR;
+
+		//cek apakah antrian kosong
+		if (FRONT == -1) {
+			cout << "Queue is empty\n";
+			return;
+		}
+
+		cout << "\nElements in the queue are...\n";
+
+		//jika FRONT_position <= REAR_position,iterasi dari FRONT hingga REAR
+		if (FRONT_position <= REAR_position) {
+			while (FRONT_position <= REAR_position) {
+				cout << queue_array[FRONT_position] << " ";
+				FRONT_position++;
+			}
+			cout << endl;
+		}
+		else {
+			//jika FRONT_positon > REAR_position,iterasi dari FRONT hingga akhir array
+			while (FRONT_position <= max - 1) {
+				cout << queue_array[FRONT_position] << " ";
+				FRONT_position;
+			}
+			cout << endl;
+		}
+	}
+};
